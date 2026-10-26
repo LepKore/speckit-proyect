@@ -4,7 +4,11 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from app.recordatorios import calcular_fecha_aviso, programar_recordatorio
+from app.recordatorios import (
+    calcular_fecha_aviso,
+    procesar_recordatorios,
+    programar_recordatorio,
+)
 
 
 @pytest.fixture
@@ -98,3 +102,23 @@ def test_programa_con_al_menos_24_horas_y_omite_avisos_atrasados(
         )
         is None
     )
+
+
+def test_emite_en_fecha_aviso_con_detalle_y_sin_duplicados(conexion_recordatorios):
+    ahora = datetime(2026, 10, 26, 9)
+    entrega = ahora + timedelta(days=2)
+    tarea_id = crear_tarea(conexion_recordatorios, entrega)
+    programar_recordatorio(conexion_recordatorios, tarea_id, entrega, ahora=ahora)
+    conexion_recordatorios.commit()
+    ruta = conexion_recordatorios.execute("PRAGMA database_list").fetchone()[2]
+
+    assert procesar_recordatorios(ruta, ahora=ahora + timedelta(hours=23, minutes=59)) == []
+    avisos = procesar_recordatorios(ruta, ahora=ahora + timedelta(days=1))
+    assert avisos == [{
+        "recordatorio_id": 1,
+        "tarea_id": tarea_id,
+        "materia": "Calculo",
+        "titulo": "Parcial",
+        "fecha_entrega": entrega.isoformat(),
+    }]
+    assert procesar_recordatorios(ruta, ahora=ahora + timedelta(days=1)) == []
