@@ -1,0 +1,10 @@
+:root { font-family: system-ui, sans-serif; color: #172033; background: #f5f7fb; }
+body { margin: 0; }
+.contenedor { max-width: 42rem; margin: 0 auto; padding: 1rem; }
+form, li { display: grid; gap: .5rem; margin-block: .75rem; }
+input, button { min-height: 2.5rem; padding: .4rem .6rem; font: inherit; }
+button { cursor: pointer; }
+ul { padding: 0; list-style: none; }
+li { grid-template-columns: auto 1fr auto; align-items: center; padding: .75rem; background: white; border-radius: .4rem; }
+.color { width: 1.25rem; height: 1.25rem; border-radius: 50%; border: 1px solid #555; }
+@media (max-width: 30rem) { .contenedor { padding: .75rem; } }

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/static/styles.css"><title>Organizador de tareas UPB</title></head>
+  <body>
+    <main class="contenedor">
+      <h1>Organizador de tareas UPB</h1>
+      <section aria-labelledby="titulo-materias">
+        <h2 id="titulo-materias">Mis materias</h2>
+        <form id="form-materia">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" maxlength="60" required>
+          <label for="color">Color</label>
+          <input id="color" name="color" maxlength="7" required>
+          <button type="submit">Agregar materia</button>
+          <p id="mensaje" role="status" aria-live="polite"></p>
+        </form>
+        <ul id="lista-materias" aria-live="polite"></ul>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
