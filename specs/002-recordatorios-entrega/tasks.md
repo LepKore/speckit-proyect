@@ -22,10 +22,10 @@
 
 - [X] T004 Implementar en `app/database.py` la tabla `recordatorios` con `tarea_id`, `fecha_entrega`, `fecha_aviso`, `estado` (`pendiente`, `emitido` o `cancelado`) y `emitido_en` opcional, con relación a tareas y cascada al eliminar.
 - [X] T005 [P] Implementar en `app/models.py` los modelos de recordatorio y validadores: `tarea_id` obligatorio, fechas válidas y comparables en zona horaria local, y estados limitados a `pendiente`, `emitido` y `cancelado`.
-- [ ] T006 [P] Crear en `tests/test_recordatorios.py` pruebas unitarias para calcular `fecha_entrega - 24 horas`, rechazar fechas inválidas y garantizar como máximo un recordatorio pendiente por tarea y fecha.
-- [ ] T007 Implementar en `app/recordatorios.py` las funciones de cálculo, programación, cancelación y reprogramación usando la identidad tarea más fecha de entrega; no crear avisos atrasados cuando falten menos de 24 horas.
-- [ ] T008 Implementar en `app/main.py` la inicialización de la tabla de recordatorios y la integración del ciclo de procesamiento local sin bloquear el arranque.
-- [ ] T009 [P] Crear en `tests/test_api.py` una prueba de arranque, persistencia y cascada de recordatorios al eliminar una tarea.
+- [X] T006 [P] Crear en `tests/test_recordatorios.py` pruebas unitarias para calcular `fecha_entrega - 24 horas`, rechazar fechas inválidas y garantizar como máximo un recordatorio pendiente por tarea y fecha.
+- [X] T007 Implementar en `app/recordatorios.py` las funciones de cálculo, programación, cancelación y reprogramación usando la identidad tarea más fecha de entrega; no crear avisos atrasados cuando falten menos de 24 horas.
+- [X] T008 Implementar en `app/main.py` la inicialización de la tabla de recordatorios y la integración del ciclo de procesamiento local sin bloquear el arranque.
+- [X] T009 [P] Crear en `tests/test_api.py` una prueba de arranque, persistencia y cascada de recordatorios al eliminar una tarea.
 
 ## Fase 3: Historia de usuario 1 - Recibir recordatorio de tarea pendiente (Prioridad: P1) 🎯 MVP
 
@@ -35,7 +35,7 @@
 
 ### Pruebas de US1
 
-- [ ] T010 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de programación para tareas pendientes con al menos 24 horas restantes y ausencia de programación con menos de 24 horas.
+- [X] T010 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de programación para tareas pendientes con al menos 24 horas restantes y ausencia de programación con menos de 24 horas.
 - [ ] T011 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de emisión exacta en `fecha_aviso`, contenido de materia/título/fecha y no duplicación al procesar dos veces.
 - [ ] T012 [P] [US1] Crear en `tests/test_api.py` pruebas de contrato para `GET /api/recordatorios/estado`, `POST /api/recordatorios/procesar` y `GET /api/tareas/{tarea_id}/recordatorio`.
 
