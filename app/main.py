@@ -13,6 +13,8 @@ from app.database import inicializar_base
 from app.recordatorios import procesar_recordatorios
 from app.routes.errores import manejar_validacion
 from app.routes.materias import router as materias_router
+from app.routes.recordatorios import router as recordatorios_router
+from app.routes.tareas import router as tareas_router
 
 
 BASE_DIR = Path(__file__).parent
@@ -43,6 +45,8 @@ async def ciclo_vida(app: FastAPI):
 app = FastAPI(title="Organizador de tareas UPB", lifespan=ciclo_vida)
 app.add_exception_handler(RequestValidationError, manejar_validacion)
 app.include_router(materias_router)
+app.include_router(recordatorios_router)
+app.include_router(tareas_router)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 

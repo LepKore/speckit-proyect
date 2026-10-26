@@ -36,14 +36,14 @@
 ### Pruebas de US1
 
 - [X] T010 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de programación para tareas pendientes con al menos 24 horas restantes y ausencia de programación con menos de 24 horas.
-- [ ] T011 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de emisión exacta en `fecha_aviso`, contenido de materia/título/fecha y no duplicación al procesar dos veces.
-- [ ] T012 [P] [US1] Crear en `tests/test_api.py` pruebas de contrato para `GET /api/recordatorios/estado`, `POST /api/recordatorios/procesar` y `GET /api/tareas/{tarea_id}/recordatorio`.
+- [X] T011 [P] [US1] Crear en `tests/test_recordatorios.py` pruebas de emisión exacta en `fecha_aviso`, contenido de materia/título/fecha y no duplicación al procesar dos veces.
+- [X] T012 [P] [US1] Crear en `tests/test_api.py` pruebas de contrato para `GET /api/recordatorios/estado`, `POST /api/recordatorios/procesar` y `GET /api/tareas/{tarea_id}/recordatorio`.
 
 ### Implementación de US1
 
-- [ ] T013 [US1] Implementar en `app/routes/recordatorios.py` los endpoints de estado, procesamiento idempotente y consulta por tarea según `contracts/api.md`.
-- [ ] T014 [US1] Implementar en `app/routes/tareas.py` la creación de tareas con programación automática cuando la fecha de entrega esté al menos 24 horas en el futuro.
-- [ ] T015 [US1] Integrar en `app/main.py` las rutas de recordatorios y el servicio local de procesamiento periódico mientras la aplicación esté ejecutándose.
+- [X] T013 [US1] Implementar en `app/routes/recordatorios.py` los endpoints de estado, procesamiento idempotente y consulta por tarea según `contracts/api.md`.
+- [X] T014 [US1] Implementar en `app/routes/tareas.py` la creación de tareas con programación automática cuando la fecha de entrega esté al menos 24 horas en el futuro.
+- [X] T015 [US1] Integrar en `app/main.py` las rutas de recordatorios y el servicio local de procesamiento periódico mientras la aplicación esté ejecutándose.
 - [ ] T016 [US1] Implementar en `app/static/app.js` la solicitud de procesamiento y la notificación del navegador con materia, título, fecha de entrega y enlace de regreso a la tarea.
 - [ ] T017 [US1] Actualizar `app/static/index.html` para mostrar el estado del recordatorio junto a cada tarea y un mensaje claro cuando exista una notificación emitida.
 
